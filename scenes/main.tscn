@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://clktse1nde1pt"]
+
+[ext_resource type="PackedScene" uid="uid://c63sgtgqlaapn" path="res://scenes/background.tscn" id="1_dfgan"]
+[ext_resource type="Script" uid="uid://d4irml2k55hqb" path="res://scenes/main.gd" id="1_sfrgt"]
+[ext_resource type="PackedScene" uid="uid://de12irmpd6bi8" path="res://scenes/ground.tscn" id="2_sfrgt"]
+[ext_resource type="PackedScene" uid="uid://bfal0nbdiddsl" path="res://scenes/chicken.tscn" id="3_etxf0"]
+[ext_resource type="PackedScene" uid="uid://sbvtkn0yafk0" path="res://scenes/hud.tscn" id="5_etxf0"]
+[ext_resource type="PackedScene" uid="uid://bo5h7mhx21xvg" path="res://scenes/game_over.tscn" id="6_tefeu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tefeu"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_sfrgt")
+
+[node name="Ground" parent="." instance=ExtResource("2_sfrgt")]
+
+[node name="Chicken" parent="." instance=ExtResource("3_etxf0")]
+position = Vector2(180, 535)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(642, 360)
+
+[node name="Background" parent="Camera2D" instance=ExtResource("1_dfgan")]
+
+[node name="JumpButton" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(-618, -40)
+scale = Vector2(0.1, 0.1)
+texture_normal = SubResource("CompressedTexture2D_tefeu")
+action = "ui_accept"
+
+[node name="DuckButton" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(-618, 74)
+scale = Vector2(0.1, 0.1)
+texture_normal = SubResource("CompressedTexture2D_tefeu")
+action = "ui_down"
+
+[node name="HUD" parent="." instance=ExtResource("5_etxf0")]
+
+[node name="GameOver" parent="." instance=ExtResource("6_tefeu")]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c5kvwslimka2w"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="JumpButton" type="TouchScreenButton" parent="."]
+action = "ui_accept"

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://de12irmpd6bi8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ylpw"]
+load_path = "res://.godot/imported/ground.png-3c5b272401200854dec4f21c83647076.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pybca"]
+size = Vector2(2560.5, 92)
+
+[node name="Ground" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-285, 622)
+scale = Vector2(1.33767, 1.04167)
+texture = SubResource("CompressedTexture2D_7ylpw")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1225, 672)
+shape = SubResource("RectangleShape2D_pybca")
