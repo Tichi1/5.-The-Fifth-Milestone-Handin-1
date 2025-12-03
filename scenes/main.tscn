@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://clktse1nde1pt"]
+[gd_scene load_steps=9 format=3 uid="uid://clktse1nde1pt"]
 
 [ext_resource type="PackedScene" uid="uid://c63sgtgqlaapn" path="res://scenes/background.tscn" id="1_dfgan"]
 [ext_resource type="Script" uid="uid://d4irml2k55hqb" path="res://scenes/main.gd" id="1_sfrgt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfal0nbdiddsl" path="res://scenes/chicken.tscn" id="3_etxf0"]
 [ext_resource type="PackedScene" uid="uid://sbvtkn0yafk0" path="res://scenes/hud.tscn" id="5_etxf0"]
 [ext_resource type="PackedScene" uid="uid://bo5h7mhx21xvg" path="res://scenes/game_over.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bmo4jlqyjigkh" path="res://scenes/coin_ui.tscn" id="7_o6xl0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tefeu"]
 
@@ -37,3 +38,18 @@ action = "ui_down"
 [node name="HUD" parent="." instance=ExtResource("5_etxf0")]
 
 [node name="GameOver" parent="." instance=ExtResource("6_tefeu")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CoinUI" parent="CanvasLayer" instance=ExtResource("7_o6xl0")]
+
+[node name="CoinTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ScoreCollectableTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="CoinTimer" to="." method="_on_coin_timer_timeout"]
+[connection signal="timeout" from="ScoreCollectableTimer" to="." method="_on_score_collectable_timer_timeout"]

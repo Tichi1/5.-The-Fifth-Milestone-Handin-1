@@ -1,0 +1,17 @@
+res://scenes/meat.tscn
+res://scenes/main.gd
+res://scenes/main.tscn
+res://scenes/chicken.tscn
+res://scenes/eagle.tscn
+res://scenes/coin.tscn
+res://scenes/coin_ui.tscn
+res://scenes/hud.tscn
+res://scenes/background.tscn
+res://scenes/game_over.tscn
+res://scenes/wolf.tscn
+res://scenes/score_collectable.gd
+res://scenes/coin.gd
+res://scenes/save_data.gd
+res://scenes/game_controller.gd
+res://scenes/coin_ui.gd
+res://scenes/chicken.gd

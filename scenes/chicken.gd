@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
-const GRAVITY : int = 4200          # downward force applied constantly
-const JUMP_SPEED : int = -1800      # upward velocity when jumping
+
+const GRAVITY : int = 4200 # apply gravity
+const JUMP_SPEED : int = -1800 # when jump reduce speed
 
 func _physics_process(delta):
-	# apply gravity every frame while in the air or on ground
+	# apply gravity always
 	velocity.y += GRAVITY * delta
 	
-	# check if the chicken is touching the ground
+	# if chicken touching ground
 	if is_on_floor():
 		# idle animation when the game hasn't started yet
 		if not get_parent().game_running:
@@ -34,5 +35,5 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.play("jump")
 	
-	# apply movement and collision response
+	# movement/collision
 	move_and_slide()

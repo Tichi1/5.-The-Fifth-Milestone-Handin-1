@@ -14,6 +14,12 @@ config/name="RunnerGodot1"
 run/main_scene="uid://clktse1nde1pt"
 config/features=PackedStringArray("4.4")
 
+[autoload]
+
+EventController="*res://scenes/event_controller.gd"
+GameController="*res://scenes/game_controller.gd"
+SaveData="*res://scenes/save_data.gd"
+
 [display]
 
 window/size/viewport_width=1280

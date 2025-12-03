@@ -1,34 +1,43 @@
-# this is the file path to save the data for the new score
-const SAVE_PATH := "user://save.cfg"
-const SECTION := "scores"
-# this is the key used to store the high score value
-const KEY := "high_score"
-# set variable of high score
+extends Node
+
+const SAVE_PATH := "user://save.cfg" # where saves data
+const SECTION := "scores" # scores setion
+
+# vars
+const KEY_HIGH_SCORE  := "high_score" 
+const KEY_TOTAL_COINS := "total_coins"
 var high_score: int = 0
+var total_coins: int = 0
 
 
 func _ready() -> void:
-	# when the node starts, load the saved high score from the file
-	load_high_score()
-func load_high_score() -> void:
-	# create a new config file object
+	load_data()
+
+
+func load_data() -> void:
 	var cfg := ConfigFile.new()
-	# try to open the save file
 	var err := cfg.load(SAVE_PATH)
-	# if the file exists and loaded correctly
-	if err == OK:
-		# read the saved value - if not possibel  default to 0
-		high_score = int(cfg.get_value(SECTION, KEY, 0))
+
+	if err == OK: # if the files loaded exist store
+		high_score  = int(cfg.get_value(SECTION, KEY_HIGH_SCORE, 0))
+		total_coins = int(cfg.get_value(SECTION, KEY_TOTAL_COINS, 0))
 	else:
-		# if there was an error, just set high score to 0
-		high_score = 0
+		high_score  = 0 # if not def 0 
+		total_coins = 0
 
 
-func set_high_score(value: int) -> void:
-	# update high_score only if the new value is higher than the current one
-	high_score = max(high_score, value)
-	# create a new config file object to save the updated value
+func save_data() -> void: # save the data
 	var cfg := ConfigFile.new()
-	# write the high_score value into the file under our section and key
-	cfg.set_value(SECTION, KEY, high_score)
-	cfg.save(SAVE_PATH) # save it
+	cfg.set_value(SECTION, KEY_HIGH_SCORE,  high_score)
+	cfg.set_value(SECTION, KEY_TOTAL_COINS, total_coins)
+	cfg.save(SAVE_PATH)
+
+
+func set_high_score(value: int) -> void:  #updates highest
+	high_score = max(high_score, value)
+	save_data()
+
+
+func add_coins(amount: int) -> void: # adds coins
+	total_coins += amount
+	save_data()
