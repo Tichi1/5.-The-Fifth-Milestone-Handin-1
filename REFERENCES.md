@@ -7,7 +7,15 @@ https://youtu.be/A4aiO6G3hFI?si=x-LRc_OMzV5o5BF-
 
 https://youtu.be/XbDh2GAshBA?si=Uy-RcXWOZkGVoha8
 
-https://www.youtube.com/watch?v=acH5Gyhe6Mo helped with new score
+https://www.youtube.com/watch?v=acH5Gyhe6Mo Helped with new score
+
+Helped with tween - animation for new high score
+https://www.youtube.com/watch?v=KUyQzjpRsU8 
+https://docs.godotengine.org/en/stable/classes/class_tween.html
+
+
+https://www.youtube.com/watch?v=lXO5Jt957BA Save data
+
 
 --------
 
